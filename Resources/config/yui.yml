@@ -13,8 +13,17 @@ system:
                 wsc-rest-blockview:
                     requires:
                         - 'ezs-blockview'
+                        - 'wsc-rest-blockconfig-formview'
                         - 'restblockview-ez-template'
                     path: %rest_block.public_dir%/js/views/wsc-rest-blockview.js
                 restblockview-ez-template:
                     type: 'template'
                     path: %ezstudioui.public_dir%/templates/blocks/block.hbt
+                wsc-rest-blockconfig-formview:
+                    requires:
+                        - 'ezs-blockpopupformview'
+                        - 'restblockconfigformview-ez-template'
+                    path: %rest_block.public_dir%/js/views/wsc-rest-blockconfig-formview.js
+                restblockconfigformview-ez-template:
+                    type: 'template'
+                    path: %rest_block.public_dir%/templates/rest-blockconfig.hbt

@@ -8,7 +8,7 @@ YUI.add('wsc-rest-blockview', function (Y) {
     /**
      * Provides the REST Block view class
      *
-     * @module fb-formblockview
+     * @module wsc-rest-blockview
      */
     Y.namespace('wsc');
 
@@ -29,17 +29,17 @@ YUI.add('wsc-rest-blockview', function (Y) {
             },
 
             /**
-             * Action menu view instance {{#crossLink "eZS.ActionMenuView"}}eZS.ActionMenuView{{/crossLink}}
+             * Block edit form view instance {{#crossLink "wsc.RestBlockConfigFormView"}}wsc.RestBlockConfigFormView{{/crossLink}}
              *
-             * @attribute actionMenu
+             * @attribute editForm
              * @type Y.View
-             * @default eZS.ActionMenuView
+             * @default wsc.RestBlockConfigFormView
              */
-            actionMenu: {
+            editForm: {
                 valueFn: function () {
-                    return new Y.eZS.ActionMenuView();
+                    return new Y.wsc.RestBlockConfigFormView();
                 }
-            },
+            }
         }
     });
 });
