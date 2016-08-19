@@ -1,0 +1,20 @@
+system:
+    default:
+        yui:
+            combine: false
+            modules:
+                wsc-add-restblockview-plugin:
+                    requires: ['plugin', 'wsc-rest-blockview', 'ez-pluginregistry']
+                    dependencyOf:
+                        - 'ezs-landingpagecreatorview'
+                        - 'ezs-dynamiclandingpagecreatorview'
+                        - 'ezs-dynamiclandingpageeditorview'
+                    path: %rest_block.public_dir%/js/plugins/wsc-add-restblockview-plugin.js
+                wsc-rest-blockview:
+                    requires:
+                        - 'ezs-blockview'
+                        - 'restblockview-ez-template'
+                    path: %rest_block.public_dir%/js/views/wsc-rest-blockview.js
+                restblockview-ez-template:
+                    type: 'template'
+                    path: %ezstudioui.public_dir%/templates/blocks/block.hbt

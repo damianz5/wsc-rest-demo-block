@@ -39,5 +39,31 @@ class EzSystemsRESTDemoBlockExtension extends Extension implements PrependExtens
         $config = Yaml::parse(file_get_contents($configFile));
         $container->prependExtensionConfig('ez_systems_landing_page_field_type', $config);
         $container->addResource(new FileResource($configFile));
+        $container->setParameter('rest_block.public_dir', 'bundles/ezsystemsrestdemoblock');
+
+        $this->prependYui($container);
+        $this->prependCss($container);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    private function prependYui(ContainerBuilder $container)
+    {
+        $yuiConfigFile = __DIR__ . '/../Resources/config/yui.yml';
+        $config = Yaml::parse(file_get_contents($yuiConfigFile));
+        $container->prependExtensionConfig('ez_platformui', $config);
+        $container->addResource(new FileResource($yuiConfigFile));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    private function prependCss(ContainerBuilder $container)
+    {
+        $cssConfigFile = __DIR__ . '/../Resources/config/css.yml';
+        $config = Yaml::parse(file_get_contents($cssConfigFile));
+        $container->prependExtensionConfig('ez_platformui', $config);
+        $container->addResource(new FileResource($cssConfigFile));
     }
 }

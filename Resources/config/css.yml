@@ -1,0 +1,5 @@
+system:
+    default:
+        css:
+            files:
+                - '@EzSystemsRESTDemoBlockBundle/Resources/public/css/block.css'
