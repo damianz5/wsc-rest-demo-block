@@ -3,6 +3,13 @@ system:
         yui:
             combine: false
             modules:
+                wsc-rest-blockview-serviceplugin:
+                    requires: ['ez-viewservicebaseplugin', 'io']
+                    dependencyOf:
+                        - 'ezs-landingpagecreatorviewservice'
+                        - 'ezs-dynamiclandingpagecreatorviewservice'
+                        - 'ezs-dynamiclandingpageeditorviewservice'
+                    path: %rest_block.public_dir%/js/plugins/wsc-rest-blockview-serviceplugin.js
                 wsc-add-restblockview-plugin:
                     requires: ['plugin', 'wsc-rest-blockview', 'ez-pluginregistry']
                     dependencyOf:
@@ -22,8 +29,18 @@ system:
                 wsc-rest-blockconfig-formview:
                     requires:
                         - 'ezs-blockpopupformview'
+                        - 'wsc-photos-selectorview'
+                        - 'event-valuechange'
                         - 'restblockconfigformview-ez-template'
                     path: %rest_block.public_dir%/js/views/wsc-rest-blockconfig-formview.js
                 restblockconfigformview-ez-template:
                     type: 'template'
                     path: %rest_block.public_dir%/templates/rest-blockconfig.hbt
+                wsc-photos-selectorview:
+                    requires:
+                        - 'ez-templatebasedview'
+                        - 'photosselectorview-ez-template'
+                    path: %rest_block.public_dir%/js/views/wsc-photos-selectorview.js
+                photosselectorview-ez-template:
+                    type: 'template'
+                    path: %rest_block.public_dir%/templates/photos-selector.hbt

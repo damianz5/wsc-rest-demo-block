@@ -1,0 +1,26 @@
+.ez-view-photosselectorview {
+    display: flex;
+}
+
+[class*="wsc-photos-selector__button--"] {
+    flex: 1 1 10%;
+    max-width: 2rem;
+}
+
+.wsc-photos-selector__photos-wrapper {
+    flex: 1 1 80%;
+    overflow: hidden;
+}
+
+.wsc-photos-selector__photos-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+.wsc-photos-selector__photo {
+    border: 2px solid transparent;
+    display: block;
+}

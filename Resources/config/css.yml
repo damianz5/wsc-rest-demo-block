@@ -3,3 +3,4 @@ system:
         css:
             files:
                 - '@EzSystemsRESTDemoBlockBundle/Resources/public/css/block.css'
+                - '@EzSystemsRESTDemoBlockBundle/Resources/public/css/photos-selector.css'

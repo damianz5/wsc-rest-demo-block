@@ -1,0 +1,16 @@
+<button type="button" class="wsc-photos-selector__button--prev">&laquo;</button>
+<div class="wsc-photos-selector__photos-wrapper">
+    <ul class="wsc-photos-selector__photos-list">
+    {{#each photos}}
+        <li class="wsc-photos-selector__photo-list-item" data-photo-id="{{this.id}}">
+            <img
+                class="wsc-photos-selector__photo"
+                src="{{this.thumbnailUrl}}"
+                alt="{{this.title}}"
+                width="150"
+                height="150">
+        </li>
+    {{/each}}
+    </ul>
+</div>
+<button type="button" class="wsc-photos-selector__button--next">&raquo;</button>

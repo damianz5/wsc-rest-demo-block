@@ -12,7 +12,7 @@ YUI.add('wsc-add-restblockview-plugin', function (Y) {
      */
     Y.namespace('wsc.Plugin');
 
-    var VIEW_NAME = 'addRestBlockPlugin';
+    var PLUGIN_NAME = 'addRestBlockPlugin';
 
     /**
      * Adds the REST block view to landing page creator view
@@ -22,12 +22,12 @@ YUI.add('wsc-add-restblockview-plugin', function (Y) {
      * @constructor
      * @extends Plugin.Base
      */
-    Y.wsc.Plugin.AddRestBlock = Y.Base.create(VIEW_NAME, Y.Plugin.Base, [], {
+    Y.wsc.Plugin.AddRestBlock = Y.Base.create(PLUGIN_NAME, Y.Plugin.Base, [], {
         initializer: function () {
             this.get('host').addBlock('restdemo', Y.wsc.RestBlockView);
         },
     }, {
-        NS: VIEW_NAME
+        NS: PLUGIN_NAME
     });
 
     Y.eZ.PluginRegistry.registerPlugin(
