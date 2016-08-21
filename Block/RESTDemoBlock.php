@@ -35,9 +35,11 @@ class RESTDemoBlock extends AbstractBlockType
     public function getTemplateParameters(BlockValue $blockValue)
     {
         $albumId = $blockValue->getAttributes()['albumId'];
+        $selectedPhotos = explode(',', $blockValue->getAttributes()['selectedPhotos']);
         return [
             'album' => json_decode($this->JSONPlaceholder->getAlbum($albumId)),
             'photos' => json_decode($this->JSONPlaceholder->listPhotos($albumId)),
+            'selectedPhotos' => $selectedPhotos
         ];
     }
 
@@ -71,6 +73,17 @@ class RESTDemoBlock extends AbstractBlockType
                     false, // should this attribute input be displayed inline to the previous?
                     [], // default value
                     $this->JSONPlaceholder->listAlbums() // available options (for select and multiple)
+                ),
+
+                new BlockAttributeDefinition(
+                    'selectedPhotos',
+                    'Selected Photos',
+                    'multiple',
+                    '',
+                    '',
+                    false,
+                    false,
+                    []
                 ),
             ]
         );

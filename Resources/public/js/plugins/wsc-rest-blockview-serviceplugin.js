@@ -29,13 +29,9 @@ YUI.add('wsc-rest-blockview-serviceplugin', function (Y) {
         },
 
         _getPhotos: function (event) {
-            console.log('_getPhotos', event.albumId);
-
             Y.io(ENDPOINT_URL + '/albums/' + event.albumId + '/photos', {
                 on: {
                     success: function (id, xhr) {
-                        console.log('_getPhotos:success', arguments);
-
                         event.target.set('photos', JSON.parse(xhr.response));
                     },
 
