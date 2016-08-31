@@ -1,8 +1,0 @@
-<div class="row">
-    <div class="col-sm-12"><h2 class="text-center">{{ album.title }}</h2></div>
-    {% for photo in photos %}
-        <a href="{{ photo.url }}" class="col-sm-2">
-            <img src="{{ photo.thumbnailUrl }}" title="{{ photo.title }}" />
-        </a>
-    {% endfor %}
-</div>

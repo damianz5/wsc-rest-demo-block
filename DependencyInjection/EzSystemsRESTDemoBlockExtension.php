@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class EzSystemsRESTDemoBlockExtension extends Extension implements PrependExtensionInterface
+class EzSystemsRESTDemoBlockExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -26,18 +26,5 @@ class EzSystemsRESTDemoBlockExtension extends Extension implements PrependExtens
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-        $loader->load('config.yml');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function prepend(ContainerBuilder $container)
-    {
-        $configFile = __DIR__ . '/../Resources/config/blocks.yml';
-        $config = Yaml::parse(file_get_contents($configFile));
-        $container->prependExtensionConfig('ez_systems_landing_page_field_type', $config);
-        $container->addResource(new FileResource($configFile));
     }
 }

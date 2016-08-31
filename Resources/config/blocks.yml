@@ -1,6 +1,0 @@
-blocks:
-    restdemo:
-        views:
-            basic:
-                template: EzSystemsRESTDemoBlockBundle::restdemo.html.twig
-                name: REST Demo Block view
