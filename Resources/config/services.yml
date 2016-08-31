@@ -1,8 +1,6 @@
 services:
     ez_systems.landing_page.block.rest:
         class: EzSystems\RESTDemoBlockBundle\Block\RESTDemoBlock
-        arguments:
-            - @ez_systems.landing_page.rest.block.jsonplaceholder
         tags:
             - { name: landing_page_field_type.block_type, alias: restdemo }
 
