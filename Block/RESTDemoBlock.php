@@ -13,6 +13,19 @@ use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\BlockValue;
  */
 class RESTDemoBlock extends AbstractBlockType
 {
+    /** @var JSONPlaceholder */
+    private $JSONPlaceholder;
+
+    /**
+     * RESTDemoBlock constructor.
+     *
+     * @param JSONPlaceholder $JSONPlaceholder
+     */
+    public function __construct(JSONPlaceholder $JSONPlaceholder)
+    {
+        $this->JSONPlaceholder = $JSONPlaceholder;
+    }
+
     /**
      * Returns the parameters to the template.
      * To retrieve block attributes call $blockValue->getAttributes()
@@ -21,10 +34,10 @@ class RESTDemoBlock extends AbstractBlockType
      */
     public function getTemplateParameters(BlockValue $blockValue)
     {
-        $attributes = $blockValue->getAttributes();
-
+        $albumId = $blockValue->getAttributes()['albumId'];
         return [
-            'albumId' => $attributes['albumId'],
+            'album' => json_decode($this->JSONPlaceholder->getAlbum($albumId)),
+            'photos' => json_decode($this->JSONPlaceholder->listPhotos($albumId)),
         ];
     }
 
@@ -57,7 +70,7 @@ class RESTDemoBlock extends AbstractBlockType
                     true, // is field required?
                     false, // should this attribute input be displayed inline to the previous?
                     [], // default value
-                    ['one' => 'One', 'two' => 'Two', 'three' => 'Three'] // available options (for select and multiple)
+                    $this->JSONPlaceholder->listAlbums() // available options (for select and multiple)
                 ),
             ]
         );
