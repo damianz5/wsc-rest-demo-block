@@ -37,7 +37,7 @@ YUI.add('wsc-rest-blockview', function (Y) {
              */
             editForm: {
                 valueFn: function () {
-                    return new Y.wsc.RestBlockConfigFormView();
+                    return new Y.wsc.RestBlockConfigFormView({bubbleTargets: this});
                 }
             }
         }
